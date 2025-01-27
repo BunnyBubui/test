@@ -1,0 +1,15 @@
+body{
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  height: fit-content;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
