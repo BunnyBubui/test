@@ -1,8 +1,5 @@
-# Cleanup record
+# Portfolio source preparation
 
-This change removes local configuration and generated personal-data artifacts from the current tree. It does not rewrite old commits. Previously used credentials must be rotated separately.
+This public hub includes isolated sports-results and ticketing source snapshots with schema-only SQL, environment examples and neutral demo media. The original private workspaces and their Git history were not imported. The calculator exercise remains in src/.
 
-Removed files: 0
-Schema-only SQL files: 0
-
-Use the corresponding `*.env.example` files to configure a local demo. Recreate upload/export directories at runtime; use synthetic data only.
+Credentials, original customer/student data, payment evidence, archives, uploaded files and generated exports were excluded from the snapshots. See each project's README for local setup and validation limits. Historical content in the original repositories remains a separate concern.
