@@ -1,0 +1,87 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    transition: all 0.4s ease;
+    background-color: white;
+    z-index: 50;
+    background: linear-gradient(to right, rgb(46, 21, 155), rgb(100, 86, 194));
+    padding: 10px 0px;
+    background-size: cover;
+    
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.nav-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;
+    gap: 5px;
+    justify-content: space-between;
+}
+
+.nav-border {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    width: 100%;
+}
+
+.nav-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    color: rgb(255, 255, 255);
+    pointer-events: fill;
+}
+
+.nav-icon {
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    background-color: rgba(95, 61, 162, 0.5);
+    border-radius: 50%;
+}
+
+.nav-box:hover .nav-icon {
+    scale: 1.1;
+}
+
+.nav-title {
+    opacity: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    right: 0;
+    user-select: none;
+    font-size: 12px;
+    bottom: -30px;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+}

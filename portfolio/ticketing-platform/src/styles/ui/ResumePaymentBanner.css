@@ -1,0 +1,84 @@
+/* =========================================
+   Resume Payment Banner - Premium Dark Blue
+   ========================================= */
+.resume-payment-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 90; 
+    animation: fade 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    background: linear-gradient(to top, rgba(7, 13, 25, 0.95), rgba(7, 13, 25, 0));
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 60px 30px 15px;
+    pointer-events: none;
+}
+
+@keyframes slideUpFade {
+    0% { transform: translate(-50%, 100px); opacity: 0; }
+    100% { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.resume-payment-btn {
+    width: 100%;
+    max-width: 400px;
+    /* ใช้สีน้ำเงินหลัก (Primary Blue) แบบเรียบหรู แทน Gradient สว่างๆ */
+    background: #3b82f6;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* เส้นขอบบางๆ สไตล์ดาร์กโหมด */
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* ใช้เงาแบบซอฟต์ๆ (Soft Shadow) ให้ดูลอยขึ้นมาแบบมีมิติ */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(59, 130, 246, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    pointer-events: all;
+    user-select: none;
+}
+
+.resume-payment-btn:active {
+    transform: scale(0.9);
+}
+
+.resume-payment-btn:hover {
+    background: #2563eb; /* สีเข้มขึ้นนิดนึงตอนโฮเวอร์ */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 6px 15px rgba(59, 130, 246, 0.3);
+}
+
+.resume-payment-btn .flex-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.resume-payment-btn .text-left {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.resume-payment-btn .title {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.resume-payment-btn .subtitle {
+    font-size: 0.8rem;
+    color: #e2e8f0; /* ใช้สีเทาอ่อนสบายตาสำหรับข้อความรอง */
+    margin-top: 0.2rem;
+}
+
+.bounce-icon {
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}

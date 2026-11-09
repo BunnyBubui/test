@@ -1,0 +1,246 @@
+/* --- OrderCard.css --- */
+.oc-container {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.oc-container:hover {
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
+    border-color: #cbd5e1;
+}
+
+/* --- Header (รหัสออเดอร์ & วันที่ & สถานะ) --- */
+.oc-header {
+    background: #3957b9;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.oc-id-date {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.oc-id-date h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.oc-date {
+    font-size: 13px;
+    color: #c0d2eb;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.oc-status-select {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+/* สีสถานะ 4 ระดับ */
+.status-0 { background-color: #fffbeb; color: #d97706; border-color: #fde68a; }
+.status-1 { background-color: #eff6ff; color: #2563eb; border-color: #bfdbfe; }
+.status-2 { background-color: #f5f3ff; color: #7c3aed; border-color: #ddd6fe; }
+.status-3 { background-color: #f0fdf4; color: #16a34a; border-color: #bbf7d0; }
+
+/* --- Body (แบ่ง 2 ฝั่ง: ลูกค้า & สินค้า) --- */
+.oc-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 20px;
+}
+
+.oc-section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px dashed #f1f5f9;
+    background: #5aa7ff;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 12px 12px 0px 0px;
+}
+
+/* ข้อมูลลูกค้า */
+.oc-customer-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 12px;
+    color: #334155;
+    line-height: 1.5;
+    background: #f8fbff;
+}
+
+.oc-customer-detail svg {
+    color: #6366f1;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* รายการสินค้า */
+.oc-item-row {
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.oc-item-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+    background: #ffd4d4;
+    padding: 5px 12px;
+    border-radius: 12px;
+}
+
+.oc-item-qty {
+    color: #ea580c;
+    font-weight: 700;
+    text-align: end;
+    padding: 5px;
+}
+
+.oc-size-text {
+    font-size: 13px;
+    color: #64748b;
+    padding-left: 24px;
+    border-radius: 12px;
+    display: block;
+    background: #f3efe2;
+}
+
+.oc-expand-btn {
+    background: none;
+    border: none;
+    color: #6366f1;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 4px;
+}
+
+.oc-expand-btn:hover {
+    text-decoration: underline;
+}
+
+/* สรุปยอด & สลิป */
+.oc-summary-box {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px dashed #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.oc-total-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #7c4e35;
+}
+
+.oc-slip-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.oc-slip-btn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+/* --- Footer (ปุ่มจัดการ) --- */
+.oc-footer {
+    background: #fafcff;
+    padding: 16px 20px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: auto 0 0 0;
+}
+
+.oc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+.oc-btn-edit {
+    background: #6366f1;
+    color: white;
+}
+.oc-btn-edit:hover { background: #4f46e5; }
+
+.oc-btn-delete {
+    background: #fee2e2;
+    color: #ef4444;
+}
+.oc-btn-delete:hover { background: #fecaca; }
+
+/* --- Responsive มือถือ --- */
+@media (max-width: 768px) {
+    .oc-body {
+        grid-template-columns: 1fr; /* ให้เรียงบนลงล่าง */
+        gap: 16px;
+    }
+    .oc-footer {
+        justify-content: stretch;
+    }
+    .oc-btn {
+        flex: 1;
+        justify-content: center;
+    }
+}

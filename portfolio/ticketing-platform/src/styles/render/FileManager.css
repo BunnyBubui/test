@@ -1,0 +1,540 @@
+/* ---------- Base Layout ---------- */
+.fm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fade 0.3s;
+    transition: opacity 0.3s;
+}
+
+.fm-overlay.hide {
+    opacity: 0;
+}
+
+.fm-modal {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    background: #f8f8f8;
+    border-radius: 12px;
+    overflow: auto;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Header ---------- */
+.fm-header {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #6c4aff, #8f73ff);
+    color: white;
+    padding: 14px 18px;
+}
+
+.fm-header h2 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.fm-close {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* ---------- Main Body ---------- */
+.fm-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* ---------- Sidebar ---------- */
+.fm-left {
+    flex-shrink: 0;
+    width: 260px;
+    background: #fff;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.25s ease;
+}
+
+.fm-left.collapsed {
+    width: 60px;
+}
+
+.fm-left-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.fm-left h4 {
+    font-size: 15px;
+    margin: 0 5px 0 0;
+}
+
+.fm-toggle {
+    border: none;
+    background: #6c4aff;
+    color: white;
+    border-radius: 5px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 99;
+}
+
+.fm-toggle:hover {
+    background: #5834ff;
+}
+
+.fm-search {
+    margin: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+}
+
+.fm-folder {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    width: 100%;
+    background: #ffffff;
+    justify-content: space-between;
+}
+
+.fm-folder-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.fm-folder-left {
+    flex: 1;
+}
+
+.fm-folder-right {
+    display: flex;
+    justify-content: end;
+}
+
+.fm-folder-right button {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: white;
+    background: #8a4ef9;
+    transition: all 0.3s;
+}
+
+.fm-folder-right button:hover {
+    background: #6d39cd;
+}
+
+.fm-folder-btn {
+    background: #ece7ff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 20px;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    color: #2f2f2f;
+    transition: 0.15s;
+    width: 100%;
+}
+
+.fm-folder-btn:hover {
+    background: #c8b8ff;
+}
+
+.fm-folder-btn.active {
+    background: #6c4aff;
+    color: white;
+}
+
+/* ---------- File Panel ---------- */
+.fm-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    overflow: hidden;
+}
+
+.fm-tool-right {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.fm-toolbar {
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.fm-toolbar h4 {
+    margin-right: auto;
+    font-weight: 600;
+}
+
+.fm-toolbar button {
+    background: #6c4aff;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.15s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fm-toolbar button:hover {
+    background: #5834ff;
+}
+
+.fm-bulk-download {
+    background: #4abe5f !important;
+}
+
+.fm-bulk-download:hover {
+    background: #319844 !important;
+}
+
+.fm-bulk-delete {
+    background: #d9534f !important;
+}
+
+.fm-bulk-delete:hover {
+    background: #b73d3a !important;
+}
+
+.fm-files {
+    flex: 1;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.fm-file-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 4px;
+    border-bottom: 1px solid #f0f0f0;
+    justify-content: space-between;
+}
+
+.fm-file-body {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    width: 100%;
+}
+
+.fm-file-body input {
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.fm-file-row:last-child {
+    border-bottom: none;
+}
+
+.fm-file-name {
+    cursor: pointer;
+    color: #222;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.fm-file-name:hover {
+    text-decoration: underline;
+}
+
+.fm-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.fm-actions button {
+    background: #e6e6e6;
+    border: none;
+    padding: 10px 8px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fm-actions button:hover {
+    background: #d5d5d5;
+}
+
+.fm-actions .danger {
+    background: #d9534f;
+    color: white;
+}
+
+.fm-actions .danger:hover {
+    background: #b73d3a;
+}
+
+.fm-actions .download {
+    background: #49db89;
+    color: white;
+}
+
+.fm-actions .download:hover {
+    background: #2dc770;
+}
+
+.fm-actions .edit {
+    background: #ffc35c;
+    color: white;
+}
+
+.fm-actions .edit:hover {
+    background: #fbb232;
+}
+
+/* ---------- Preview Overlay ---------- */
+.fm-preview {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    animation: fadeIn 0.25s ease;
+}
+
+.fm-preview img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.fm-modalName-overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    animation: fade 0.3s;
+    transition: opacity 0.3s;
+}
+
+.fm-modalName-overlay.hide {
+    opacity: 0;
+}
+
+.fm-modalName {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 10px 20px;
+    flex-direction: column;
+    overflow-y: scroll;
+    border: 2px solid rgb(64, 64, 64);
+}
+
+.fm-modalName-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.fm-modalName-header h1 {
+    font-size: 20px;
+    color:#6d39cd;
+}
+
+.fm-modalName-header p {
+    font-size: 16px;
+    margin-left: 20px;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+}
+
+
+.fm-modalName-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.fm-modalName-body label {
+    font-size: 20px;
+    font-weight: 600;
+    color:#f19a37;
+}
+
+.fm-modalName-body textarea {
+    margin-top: 10px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 5px 10px;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    max-width: 800px;
+    resize: none;
+}
+
+.fm-modalName-body p {
+    font-size: 16px;
+}
+
+.fm-modalName-footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+    align-items: end;
+    padding: 20px 0px;
+    flex-wrap: wrap;
+}
+
+.fm-modalName-footer button {
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.fm-modalName-footer .button-cancel {
+    background: #ff5552;
+}
+
+.fm-modalName-footer .button-cancel:hover {
+    background: #e83e3b;
+}
+
+.fm-modalName-footer .button-apply {
+    background: rgb(140, 54, 198);
+}
+
+.fm-modalName-footer .button-apply:hover {
+    background: rgb(114, 44, 161);
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .fm-file-row {
+        flex-direction: column;
+        justify-content: baseline;
+    }
+
+    .fm-actions {
+        flex-direction: row;
+        justify-content: end;
+        width: 100%;
+    }
+
+    .fm-modal {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    .fm-content {
+        flex-direction: column;
+    }
+
+    .fm-left {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .fm-left.collapsed {
+        width: 100%;
+        height: auto;
+    }
+
+    .fm-right {
+        padding: 10px;
+    }
+
+    .fm-toolbar {
+        align-items: stretch;
+    }
+}
+
+.fm-search-file {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}

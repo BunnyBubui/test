@@ -1,0 +1,183 @@
+.tour-hero-section {
+  position: relative;
+  width: 100%;
+  height: 450px; /* ความสูงของแบนเนอร์หน้าหมวดหมู่ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 56px; /* เว้นระยะให้ Top bar */
+}
+
+.tour-hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+}
+
+.tour-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tour-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(16, 33, 90, 0.7), rgba(16, 33, 90, 0.9));
+}
+
+.tour-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.tour-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  color: #ffde59;
+}
+
+.tour-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.tour-subtitle {
+  font-size: 1.1rem;
+  color: #e2e8f0;
+  font-weight: 300;
+}
+
+/* =========================================
+   🌟 Page Hero Section (แบนเนอร์สำหรับหน้ารองทุกหน้า)
+========================================= */
+.page-hero-section {
+  position: relative;
+  width: 100%;
+  height: 450px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 56px; /* เว้นระยะให้ Top bar */
+}
+
+.page-hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+}
+
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* สีเริ่มต้น ถ้าหน้าไหนไม่ได้ส่งสีมาทับ */
+.page-hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(16, 33, 90, 0.7), rgba(16, 33, 90, 0.9));
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.page-hero-icon-badge {
+  display: inline-flex;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  color: #ffde59;
+}
+
+.page-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.page-hero-subtitle {
+  font-size: 1.1rem;
+  color: #e2e8f0;
+  font-weight: 300;
+}
+
+.back-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  border: 1px solid rgb(255, 255, 255);
+  color: #ffffff;
+  position: absolute;
+  top: -40px;
+  transition: all 0.3s;
+  gap: 0;
+  left: 20px;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(255, 255, 255);
+  color: #ffffff;
+  scale: 1.05;
+}
+
+.back-btn i {
+  display: flex;
+  align-items: center;
+  transform: translateX(0);
+  transition: all 0.3s;
+}
+
+.back-btn:hover i {
+  transform: translateX(-5px);
+}
+
+@media (max-width: 768px) {
+  .back-btn { top: -20px; }
+}
+
+
+/* =========================================
+   🌟 Responsive สำหรับ Hero
+========================================= */
+@media (max-width: 768px) {
+  .page-hero-section { height: 350px; }
+  .page-hero-title { font-size: 2rem; }
+  .page-hero-icon-badge { width: 50px; height: 50px; }
+}

@@ -1,0 +1,23 @@
+/* ════════════════════════════════════════
+   BODY — Premium Dark Blue Theme (No Neon)
+   ════════════════════════════════════════ */
+:root {
+    --bg-deep-blue: #111e38; /* น้ำเงินเข้มจัดจนเกือบดำ */
+    --bg-navy-blue: #111e38; /* น้ำเงินกรมท่า ดูนุ่มนวล */
+    --text-base: #f1f5f9;    /* สีตัวอักษรหลักเป็นเทาอ่อนสว่างๆ สบายตา */
+}
+
+.body {
+    margin-top: 105px;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-deep-blue) 0%, var(--bg-navy-blue) 100%);
+    color: var(--text-base); /* ตั้งค่าสีตัวอักษรเริ่มต้น */
+}
+
+/* ── RESPONSIVE ── */
+@media (min-width: 768px) {
+    .body {
+        margin-top: 105px;
+    }
+}

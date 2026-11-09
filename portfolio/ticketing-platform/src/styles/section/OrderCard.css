@@ -1,0 +1,385 @@
+/* ════════════════════════════════════
+   ORDER CARDS - EXACT RECEIPT THEME (ORIGINAL)
+   ════════════════════════════════════ */
+.pa-card {
+  background: linear-gradient(145deg, #1a2648 0%, #07071c 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  color: #e2e8f0;
+  margin-bottom: 2rem;
+  animation: pa-rise 0.45s ease-out both;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes pa-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.pa-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  min-height: 60px;
+}
+
+.pa-date {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+/* ── RECEIPT ELEMENTS ── */
+.pa-receipt-divider {
+  height: 1px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  margin: 1.2rem 0;
+  width: 100%;
+}
+
+.pa-receipt-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.pa-receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 0.95rem;
+}
+
+.pa-receipt-row span {
+  color: #94a3b8;
+}
+
+.pa-receipt-name {
+  color: #60a5fa;
+  text-transform: uppercase;
+}
+
+.pa-receipt-row.total {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pa-receipt-row.total span:last-child {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+/* ── TICKET CODES ── */
+.pa-ticket-codes-wrapper {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pa-ticket-code-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.code-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.code-value {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.1rem;
+  color: #f8fafc;
+  letter-spacing: 1px;
+}
+
+/* ── SLIP DISPLAY (PAID STATE) ── */
+.pa-slip-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.pa-slip-text {
+  font-size: 0.8rem;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.pa-slip {
+  position: relative;
+  display: inline-block;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s;
+}
+
+.pa-slip:hover {
+  transform: scale(1.02);
+}
+
+.pa-slip-img {
+  max-width: 180px;
+  display: block;
+}
+
+.pa-slip-veil {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  color: white;
+  gap: 5px;
+}
+
+.pa-slip:hover .pa-slip-veil {
+  opacity: 1;
+}
+
+
+/* ════════════════════════════════════
+   NEW CLASSES (PAYMENT & UPLOAD)
+   ════════════════════════════════════ */
+
+/* ── QR Container ── */
+.pa-qr-container {
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+}
+
+/* ── Ticket Item Group ── */
+.pa-ticket-item-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pa-ticket-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.pa-ticket-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pa-ticket-name {
+  color: #f8fafc;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.pa-ticket-count {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* ── Unpaid Payment Box ── */
+.pa-payment-warning-box {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.pa-warning-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ef4444;
+  margin-bottom: 1.2rem;
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.pa-bank-box {
+  background: rgba(15, 23, 42, 0.6);
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pa-bank-details-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.pa-bank-text {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.pa-bank-account-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pa-account-number {
+  color: #fbbf24;
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  font-family: monospace;
+}
+
+/* Copy Button */
+.pa-copy-btn {
+  background: rgba(255,255,255,0.1);
+  color: #f8fafc;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.pa-copy-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.pa-copy-btn.copied {
+  background: #22c55e;
+  color: #ffffff;
+}
+
+/* ── Upload Section ── */
+.pa-upload-title {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f1f5f9;
+  font-size: 1rem;
+}
+
+.pa-upload-label {
+  border: 2px dashed rgba(255,255,255,0.2);
+  padding: 2rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: rgba(0,0,0,0.3);
+  transition: all 0.3s;
+  min-height: 160px;
+  width: 100%;
+}
+
+.pa-upload-label:hover {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.pa-preview-img {
+  max-height: 250px;
+  max-width: 100%;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.pa-upload-placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.pa-upload-text {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.pa-upload-warning {
+  color: #f87171;
+  font-size: 0.8rem;
+  margin-top: 8px;
+  display: block;
+  text-align: center;
+}
+
+.pa-submit-btn {
+  width: 100%;
+  margin-top: 1.2rem;
+  padding: 14px;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.pa-submit-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.pa-empty-slip {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 0.9rem;
+  width: 100%;
+}

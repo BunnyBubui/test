@@ -1,0 +1,257 @@
+.loading-screen.new {
+  --accent: #c446d5;
+  --accent-2: #fabde7;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+
+  position: relative;
+  min-height: 100vh;
+  padding: 0 20px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(1100px 1100px at 15% 10%, rgba(231, 142, 255, 0.08), transparent 60%),
+    linear-gradient(160deg, #56381a 0%, #2c243b 60%, #161423 100%);
+  overflow: hidden;
+  z-index: 99999;
+}
+
+.bg-orb {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  animation: float 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+.orb-1 {
+  background: #d8814b;
+  top: -90px;
+  left: -90px;
+}
+
+.orb-2 {
+  background: #c978ff;
+  bottom: -120px;
+  right: -80px;
+  animation-delay: -6s;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-16px)
+  }
+}
+
+.loading-card.glass {
+  padding: 28px 32px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-stack {
+  position: relative;
+  max-width: 100px;
+  max-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-stack img {
+  width: 100%;
+  height: 100%;
+}
+
+.logo-image {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+}
+
+.logo-stack .halo {
+  position: absolute;
+  inset: -8px;
+  border-radius: 16px;
+  background: radial-gradient(closest-side, rgba(141, 217, 255, 0.35), rgba(141, 198, 255, 0));
+  filter: blur(8px);
+  animation: breathe 2.8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: .6;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: .9;
+  }
+}
+
+.spinner {
+  margin-top: 4px;
+}
+
+.spinner-svg {
+  width: 72px;
+  height: 72px;
+  transform-origin: center;
+  animation: spin 2s linear infinite;
+}
+
+.spinner-svg .track {
+  fill: none;
+  stroke: rgba(255, 255, 255, .18);
+  stroke-width: 4;
+}
+
+.spinner-svg .arc {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 80 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.4s ease-in-out infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90 200;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90 200;
+    stroke-dashoffset: -124;
+  }
+}
+
+.loading-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.loading-tip {
+  font-size: 14px;
+  opacity: .9;
+  min-height: 20px;
+  transition: opacity .35s;
+}
+
+.loading-message {
+  font-size: 13px;
+  opacity: .9;
+  margin-top: 14px;
+}
+
+.loading-progress {
+  width: 260px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 6px;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: inherit;
+  box-shadow: 0 0 20px rgba(255, 206, 141, 0.45);
+}
+
+.loading-progress.is-indeterminate .progress-fill {
+  position: absolute;
+  width: 40%;
+  animation: indet 1.4s ease-in-out infinite;
+}
+
+@keyframes indet {
+  0% {
+    left: -40%;
+    width: 40%;
+  }
+
+  50% {
+    left: 30%;
+    width: 60%;
+  }
+
+  100% {
+    left: 100%;
+    width: 40%;
+  }
+}
+
+@media (min-width: 640px) {
+  .spinner-svg {
+    width: 86px;
+    height: 86px;
+  }
+
+  .loading-text {
+    font-size: 20px;
+  }
+
+  .loading-tip {
+    font-size: 15px;
+  }
+
+  .loading-message {
+    font-size: 14px;
+  }
+
+  .loading-progress {
+    width: 320px;
+    height: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

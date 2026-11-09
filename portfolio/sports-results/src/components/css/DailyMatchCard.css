@@ -1,0 +1,146 @@
+.dmr-card {
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 24px;
+    background: url('/demo-placeholder.svg');
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    background-color: #f7f7f7;
+    width: 100%;
+    max-width: 1200px;
+    border: 2px solid rgb(225, 225, 225);
+}
+
+/* ===== header ===== */
+.dmr-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.dmr-card-header img {
+    width: 32px;
+    height: 32px;
+}
+
+.dmr-card-header h3 {
+    font-size: 20px;
+    color: black;
+}
+
+.dmr-card-header p {
+    font-size: 16px;
+    color: #666;
+}
+
+.dmr-card-round {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed rgb(223, 223, 223);
+}
+
+.dmr-card-round h1 {
+    font-size: 24px;
+}
+
+.dmr-card-round h3 {
+    color: #666;
+    font-size: 16px;
+}
+
+/* ===== body ===== */
+.dmr-card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dmr-team {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 479px) {
+    .dmr-team{
+        height: 250px;
+    } 
+}
+
+.dmr-team-winner {
+    background: #e6f8ec;
+    border: 2px solid #2ecc71;
+}
+
+.dmr-team-lose {
+    background: #f8e6e6;
+    border: 2px solid #cc2e2e;
+}
+
+.dmr-team-draw {
+    background: #f8f3e6;
+    border: 2px solid #ccac2e;
+}
+
+.dmr-team-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-height: 200px;
+}
+
+.dmr-team-card p{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.dmr-team-card img{
+    width: 100%;
+    max-width: 120px;
+    margin-bottom: 5px;
+}
+
+.dmr-badge {
+    display: inline-block;
+    margin-top: 6px;
+    background: #2ecc71;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.dmr-vs {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+/* ===== footer ===== */
+.dmr-card-footer {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+}
+
+.dmr-no-result {
+    margin-top: 10px;
+    text-align: center;
+    color: #ff9800;
+    font-weight: 600;
+}

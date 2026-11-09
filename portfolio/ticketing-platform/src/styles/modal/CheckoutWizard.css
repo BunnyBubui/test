@@ -1,0 +1,714 @@
+/* =========================================
+   Checkout Wizard - Premium Dark Blue Theme
+   ========================================= */
+
+/* ─── โครงสร้างหลัก (Wizard Container) ─── */
+.wizard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    margin-top: 20px;
+    color: #f8fafc;
+}
+
+/* ─── Step Indicator (จุดบอกสถานะ 1-2-3) ─── */
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px 5px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 200;
+    backdrop-filter: blur(8px);
+}
+
+.step-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #1e293b;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.step-dot.active {
+    background-color: #3b82f6;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    transform: scale(1.1);
+}
+
+.step-dot.done {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border-color: #3b82f6;
+}
+
+.step-line {
+    height: 3px;
+    width: 50px;
+    background-color: #1e293b;
+    border-radius: 3px;
+}
+
+.step-line.active {
+    background-color: #3b82f6 !important;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+.payment-timer-box {
+    user-select: none;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    /* แก้บั๊กเบลอด้วยการใช้สีทึบ */
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 100;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    /* กันเนื้อหาทะลุตอนหดกล่อง */
+}
+
+.payment-timer-box:active {
+    transform: scale(0.98);
+}
+
+.timer-header-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.timer-texts {
+    margin-bottom: 0.5rem;
+}
+
+.text-danger-bold {
+    color: #f87171;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.text-white-bold {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.main-timer {
+    font-size: 3rem !important;
+    margin: 0 !important;
+    color: #60a5fa !important;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    text-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+}
+
+/* โหมด Compact (หดย่อ) */
+.payment-timer-box.compact {
+    padding: 1rem 1.2rem;
+}
+
+.payment-timer-box.compact .timer-header-row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.payment-timer-box.compact .timer-texts {
+    margin-bottom: 0;
+}
+
+.payment-timer-box.compact .main-timer {
+    font-size: 1.8rem !important;
+}
+
+/* รายละเอียดบิลใบเสร็จ (Bill Details) */
+.bill-details {
+    width: 100%;
+    margin: 1rem 0 0.5rem 0;
+    text-align: left;
+}
+
+.bill-title {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+.bill-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bill-item-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: #f8fafc;
+}
+
+.bill-item-name small {
+    color: #60a5fa;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.bill-item-price {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+/* เส้นประใบเสร็จ */
+.bill-divider-dashed {
+    border-top: 2px dashed rgba(96, 165, 250, 0.2);
+    margin: 1rem 0;
+    width: 100%;
+}
+
+/* กล่องสรุปยอดเงิน */
+.payment-amount-display {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px dashed rgba(96, 165, 250, 0.3);
+    border-radius: 12px;
+    padding: 1.2rem 1rem;
+    text-align: center;
+}
+
+.payment-amount-display span {
+    display: block;
+    color: #cbd5e1;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.price-tag {
+    color: #fbbf24 !important;
+    /* สีเหลืองทอง */
+    font-size: 2.2rem !important;
+    margin: 0 !important;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 15px rgba(251, 191, 36, 0.3) !important;
+}
+
+/* ปุ่มลูกศรเปิดปิดรายละเอียด */
+.payment-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.payment-timer-box.compact .payment-footer {
+    margin-top: 0.5rem;
+    border-top: none;
+}
+
+.payment-footer i {
+    display: flex;
+    align-items: center;
+    transition: transform 0.4s;
+    color: #94a3b8;
+}
+
+.payment-footer i.active {
+    transform: rotate(180deg);
+}
+
+.payment-footer p {
+    font-size: 11px !important;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* ─── Animations ─── */
+.animate-fade-top {
+    animation: slideDownFade 0.3s ease-out forwards;
+}
+
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─── QR Code Area (คงพื้นหลังขาวเพื่อให้สแกนติด) ─── */
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.qr-code-display,
+.qr-code-display-full {
+    background: #1e293b;
+    /* กรอบนอกสีดาร์ก */
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    position: relative;
+}
+
+.qr-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    background: #ffffff;
+    /* 🌟 สำคัญ: ต้องเป็นสีขาวเพื่อให้สแกนได้ */
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+}
+
+.qr-code-display img {
+    width: 200px;
+    height: 200px;
+}
+
+.qr-logo-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.qr-logo-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.qr-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.qr-scan-title {
+    text-align: center;
+    margin: 0;
+    font-weight: 700;
+    color: #f8fafc;
+    /* ข้อความหัวข้อ QR Code สีขาว */
+}
+
+.btn-refresh-qr {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #60a5fa;
+    padding: 4px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-refresh-qr:active {
+    scale: 0.95;
+    background: rgba(59, 130, 246, 0.3);
+}
+
+.qr-image-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.qr-image-main {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    transition: all 0.3s;
+    opacity: 1;
+}
+
+.qr-image-main.is-refreshing {
+    opacity: 0.5;
+    scale: 0.9;
+    filter: blur(2px);
+}
+
+/* ─── Buttons & Links ─── */
+.bank-app-links-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn-download-qr {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    cursor: pointer;
+}
+
+.btn-download-qr:active {
+    scale: 0.96;
+}
+
+.btn-download-qr:hover {
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+.icon-mr-05 {
+    margin-right: 0.5rem;
+}
+
+/* ─── Instructions ─── */
+.payment-instructions {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin-top: 1rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.instructions-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #f8fafc;
+}
+
+.instructions-list {
+    padding-left: 1.2rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ─── Expired & Error States ─── */
+.expired-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(7, 13, 25, 0.9);
+    /* พื้นหลังดำมืดตอนหมดเวลา */
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 16px;
+}
+
+.btn-restart-transaction {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    transition: scale 0.2s;
+}
+
+.btn-restart-transaction:active {
+    scale: 0.95;
+}
+
+.btn-restart-transaction i {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+/* ─── Receipt (ใบเสร็จ/สลิปจำลอง) ─── */
+.receipt-container {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    margin-top: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 567px) {
+    .receipt-container {
+        padding: 15px 20px;
+    }
+}
+
+.success-checkmark {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(16, 185, 129, 0.15);
+    /* เขียวมรกตโปร่งแสง */
+    color: #34d399;
+    /* เขียวมิ้นต์สว่าง */
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -40px auto 1rem;
+    margin-top: 0px;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.receipt-header h2 {
+    color: #34d399;
+    margin-bottom: 0.2rem;
+}
+
+.receipt-divider {
+    border-top: 2px dashed rgba(255, 255, 255, 0.15);
+    margin: 1.5rem 0;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+.receipt-row.total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #60a5fa;
+    /* ยอดรวมสีฟ้าสว่าง */
+}
+
+.receipt-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f8fafc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ─── Bank Links ─── */
+.bank-app-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-bank {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-bank:hover {
+    transform: translateY(-2px);
+}
+
+.btn-kbank {
+    background-color: #00a950;
+}
+
+.btn-scb {
+    background-color: #4e2a84;
+}
+
+/* ─── Utilities ─── */
+.timer-text-bold {
+    font-weight: bold;
+}
+
+.timer-text-normal {
+    font-weight: normal;
+}
+
+.mb-1-5 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.loading-state {
+    text-align: center;
+    padding: 2rem;
+    color: #94a3b8;
+}
+
+.bank-transfer-display {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spin-animation {
+    animation: spin 1s linear infinite;
+}
+
+.scroll-observer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 480px) {
+    .main-timer {
+        font-size: 2.5rem !important;
+    }
+
+    .price-tag {
+        font-size: 1.8rem !important;
+    }
+}
+
+/* ───ปุ่มล้างรายการ (Clear Transaction) ─── */
+.btn-clear-transaction, .btn-cancel-order {
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-top: 10px;
+}
+
+.btn-clear-transaction:hover {
+    background: rgba(239, 68, 68, 0.1);
+    /* พื้นแดงอ่อนๆ ตอน Hover */
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.btn-clear-transaction:active, .btn-cancel-transaction:active {
+    transform: scale(0.96);
+}
+
+.btn-cancel-order {
+    width: 100%;
+    background-color: transparent !important;
+    color: #ef4444 !important;
+    border: 1px solid rgba(239, 68, 68, 0.5) !important;
+}
+
+.btn-cancel-order:hover {
+    background-color: rgba(255, 234, 234, 0.05) !important;
+    color: #fc6565 !important;
+    border: 1px solid rgba(255, 131, 131, 0.5) !important;
+}
+
+
+.order-form {
+    padding: 10px 20px;
+}

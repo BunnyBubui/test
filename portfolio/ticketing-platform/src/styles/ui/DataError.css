@@ -1,0 +1,122 @@
+/* src/styles/ui/DataError.css */
+.data-error-container {
+  min-height: 60vh; /* ไม่ต้องเต็มจอ 100vh เผื่อให้เห็น Navbar/Footer */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.data-error-content {
+  background: white;
+  padding: 48px 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(225, 29, 72, 0.05); /* ชาโดว์อมแดงนิดๆ */
+  border: 1px solid #ffe4e6; /* ขอบสีชมพูอ่อนมาก */
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+}
+
+/* เอฟเฟกต์วงกลมซ้อนกันตรงไอคอน */
+.error-icon-circle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-icon-bg {
+  position: absolute;
+  inset: 0;
+  background: #ffe4e6; /* rose-100 */
+  border-radius: 50%;
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.text-rose-500 {
+  color: #f43f5e;
+  position: relative;
+  z-index: 1;
+}
+
+.error-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.error-message {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  padding: 0 10px;
+}
+
+/* กลุ่มปุ่ม */
+.error-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.error-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 99px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  width: 100%;
+}
+
+/* ปุ่ม Retry (ปุ่มหลัก) */
+.btn-retry {
+  background: #f43f5e; /* rose-500 */
+  color: white;
+  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
+}
+
+.btn-retry:hover {
+  background: #e11d48; /* rose-600 */
+  transform: translateY(-2px);
+}
+
+/* ปุ่ม Home (ปุ่มรอง) */
+.btn-home {
+  background: transparent;
+  border: 2px solid #e2e8f0;
+  color: #64748b;
+}
+
+.btn-home:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+/* Animations */
+.animate-fade-up {
+  animation: errorFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes errorFadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+}

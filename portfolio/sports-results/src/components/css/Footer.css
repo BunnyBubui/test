@@ -1,0 +1,31 @@
+.footer {
+  background: rgb(95, 61, 162);
+  color: #fff;
+  text-align: center;
+  padding: 30px 10px;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #ffdd57;
+  transition: 0.3s;
+}
+
+.footer-link:hover {
+  color: #ffea96;
+}
+
+.footer p {
+  margin: 10px 0;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.footer-author {
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-top: 15px;
+}

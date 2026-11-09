@@ -1,0 +1,456 @@
+/* =========================================
+   Checkout Modal - Premium Dark Blue Theme
+   ========================================= */
+
+/* --- App Modal (Bottom Sheet Style) --- */
+.app-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65); /* พื้นหลังดำโปร่งแสง */
+    backdrop-filter: blur(5px); /* เบลอฉากหลังให้ Modal เด่นขึ้น */
+    z-index: 999;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    animation: fadeInBg 0.3s ease;
+}
+
+.app-modal-overlay.hide {
+    animation: fadeOutBg 0.3s forwards;
+}
+
+.app-modal-sheet {
+    background: #1e293b; /* พื้นหลัง Modal สีกรมท่า */
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    border-radius: 24px 24px 0 0;
+    padding: 16px 5px 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5); /* เงาด้านบน */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    animation: CslideUp 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.app-modal-overlay.hide .app-modal-sheet {
+    transform: translateY(100%) !important;
+}
+
+.sheet-drag-handle {
+    width: 40px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin: 0 auto 16px;
+}
+
+.sheet-title {
+    text-align: center;
+    margin: 0 0 16px 0;
+    font-size: 20px;
+    color: #f8fafc; /* หัวข้อสีสว่าง */
+    font-weight: 700;
+}
+
+.sheet-scroll-content {
+    overflow-y: auto;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+}
+
+.sheet-scroll-content::-webkit-scrollbar {
+    display: none;
+}
+
+body.force-lock-scroll {
+    overflow: hidden !important;
+}
+
+/* Bank Card */
+.payment-warp {
+    border-radius: 20px;
+}
+
+.payment-bank-card {
+    background: #0f172a; /* พื้นหลังบัตรสีกรมท่าเข้มจัด */
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bank-poster {
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.9; /* ลดความจ้าของรูปแบนเนอร์ธนาคารลงนิดนึง */
+}
+
+.bank-details {
+    padding: 16px;
+    text-align: center;
+}
+
+.bank-name {
+    color: #94a3b8;
+    font-size: 14px;
+    margin: 0 0 4px 0;
+}
+
+.bank-acc {
+    font-size: 24px;
+    color: #60a5fa; /* เลขบัญชีสีฟ้าสว่าง */
+    letter-spacing: 1.5px;
+    margin: 0 0 4px 0;
+    font-weight: 700;
+}
+
+.bank-user {
+    font-size: 16px;
+    color: #f8fafc;
+    letter-spacing: 1px;
+    margin: 0 0 10px 0;
+}
+
+.btn-copy-acc {
+    background: rgba(59, 130, 246, 0.15); /* ปุ่มก๊อปปี้สีฟ้าโปร่งแสง */
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-copy-acc:hover {
+    background: rgba(59, 130, 246, 0.3);
+    color: #ffffff;
+}
+
+.bank-total-box {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px dashed rgba(96, 165, 250, 0.4); /* กล่องยอดโอนสีฟ้าดาร์ก */
+    color: #cbd5e1;
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bank-total-box span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.highlight-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: #60a5fa; /* ราคาสีฟ้าสว่าง */
+    text-shadow: 0 2px 8px rgba(96, 165, 250, 0.3);
+}
+
+.divider {
+    border: none;
+    border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    margin: 20px 0;
+}
+
+.checkout-breakdown {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14.5px;
+    color: #cbd5e1; /* ข้อความสรุปยอด */
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.free-shipping-text {
+    color: #34d399; /* สีเขียวมิ้นต์ (สว่างบนดาร์กโหมด) */
+    font-weight: bold;
+}
+
+.promo-alert {
+    font-size: 13px;
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 6px 10px;
+    border-radius: 8px;
+    margin-top: 4px;
+    text-align: center;
+}
+
+/* Form Styles */
+.form-section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #60a5fa;
+    background: rgba(255, 255, 255, 0.05); /* แถบหัวข้อฟอร์มแบบโปร่งแสง */
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.input-row {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 520px) {
+    .input-row {
+        gap: 8px;
+    }
+}
+
+.input-group {
+    flex: 1;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #94a3b8; /* ลาเบลสีเทา */
+    margin-bottom: 6px;
+}
+
+.input-group i {
+    color: #ef4444; /* ดอกจันสีแดง */
+    font-size: 14px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="tel"] {
+    background: rgba(15, 23, 42, 0.6); /* ช่องกรอกข้อมูลสีกรมท่าเข้ม */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f8fafc;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 15px;
+    outline: none;
+    min-width: 180px;
+    transition: all 0.2s ease;
+}
+
+.input-group input::placeholder {
+    color: #475569;
+}
+
+.input-group input:focus {
+    border-color: #3b82f6; /* ขอบสีฟ้าตอนพิมพ์ */
+    background: #0f172a;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px #0f172a inset !important;
+
+    -webkit-text-fill-color: #f8fafc !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:autofill {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+}
+
+/* Dropdowns */
+.full-width-dropdown {
+    width: 100%;
+}
+
+.full-width-dropdown .sort-btn {
+    width: 100%;
+    justify-content: space-between;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 14px;
+    height: auto;
+    font-size: 15px;
+    color: #f8fafc;
+}
+
+.full-width-dropdown .sort-dropdown-menu {
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Upload Box */
+.app-upload-box {
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    background: rgba(15, 23, 42, 0.4); /* กล่องอัปโหลดโปร่งแสง */
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.app-upload-box:hover {
+    padding: 30px 0;
+    background: rgba(59, 130, 246, 0.05);
+    border-color: rgba(96, 165, 250, 0.5);
+}
+
+.app-upload-box:active {
+    scale: 0.98;
+}
+
+.app-upload-box.has-file {
+    padding: 10px;
+    border-style: solid;
+    border-color: #3b82f6;
+    background: rgba(15, 23, 42, 0.8);
+}
+
+.upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #94a3b8;
+    font-size: 14px;
+    text-align: center;
+}
+
+.upload-placeholder small {
+    color: #60a5fa; /* ข้อความรองสีฟ้า */
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.app-preview-img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.error-msg {
+    color: #f87171; /* สีแดงสว่าง */
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.sheet-footer-actions {
+    margin-top: 24px;
+}
+
+/* ปุ่มยืนยัน */
+.btn-confirm-order {
+    width: 100%;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    transition: all 0.2s ease;
+}
+
+.btn-confirm-order:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-confirm-order:active {
+    transform: scale(0.96);
+}
+
+/* ลิงก์ติดต่อเรา */
+.ca-support {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.ca-support a {
+    color: #60a5fa;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    padding: 6px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    background: rgba(59, 130, 246, 0.05);
+    user-select: none;
+}
+
+.ca-support a:hover {
+    color: #ffffff;
+    background: #3b82f6;
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.ca-support a:active {
+    scale: 0.95;
+}
+
+/* Modal Animations */
+@keyframes fadeOutBg {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes CslideDown {
+    from { transform: translateY(0); }
+    to { transform: translateY(100%); }
+}
+
+@keyframes fadeInBg {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes CslideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}

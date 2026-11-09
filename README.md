@@ -1,21 +1,19 @@
-# React + TypeScript + Vite
+# BunnyBubui — Software Development Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Selected work for Full-stack / Software Developer applications. This repository hosts isolated code showcases; the original calculator exercise remains in `src/`.
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+| Project | What to review | Source |
+|---|---|---|
+| Sports Results Dashboard | React/Express integration, MySQL transactions, Socket.IO | [Code](portfolio/sports-results) |
+| Ticketing Platform | Ordering interfaces, administration and backend structure | [Code](portfolio/ticketing-platform) |
+| Electricity Usage Logger | Data entry, pagination and MongoDB aggregation | [Repository](https://github.com/BunnyBubui/electricity-logger) |
+| IoT Weather Monitor | MQTT collection, FastAPI and sensor-data pipeline | [Repository](https://github.com/BunnyBubui/Weather-lab-iot) |
+| Order Management | Spring Boot/JPA and related order items | [Repository](https://github.com/BunnyBubui/prg-01-67100784) |
+| Luma Camera | Kotlin/Java, CameraX and local image processing | [Repository](https://github.com/BunnyBubui/LumaCamera) |
 
-## Deploy Your Own
+## Resume drafts
 
-Deploy your own Vite project with Vercel.
+- [English](portfolio/RESUME.en.md)
+- [ภาษาไทย](portfolio/RESUME.th.md)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/vite-react&template=vite-react)
-
-_Live Example: https://vite-react-example.vercel.app_
-
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
-```
+The showcases use synthetic-data preparation and operator-supplied local settings. Original customer/student records, credentials, payment evidence and media are excluded. Read each project's README for run instructions and validation limits. Team contributions and third-party assets retain their original authorship; the resume text should be adjusted to the applicant's personal contribution before submission.

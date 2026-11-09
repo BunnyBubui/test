@@ -1,0 +1,236 @@
+/* ============================================
+   Alert.css — Premium Dark Blue Theme
+   ============================================ */
+
+.alert-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65); /* เข้มขึ้นนิดนึงให้กล่องป๊อปอัปเด่น */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease-in-out;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(5px);
+  padding: 10px;
+}
+
+.alert-overlay.hide {
+  opacity: 0;
+}
+
+.alert-box {
+  background: #1e293b; /* สีกรมท่าเข้ม */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* เส้นขอบบางๆ */
+  padding: 24px 28px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 320px;
+  min-width: 250px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); /* เงาซอฟต์ๆ แต่ลึก */
+  animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alert-box h3 {
+  color: #60a5fa; /* สีฟ้าอ่อนสบายตา */
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.alert-box p {
+  color: #cbd5e1; /* สีเทาอ่อนสำหรับข้อความเนื้อหา */
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.alert-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px; /* ลดระยะห่างลงมาให้ดูโมเดิร์นขึ้น */
+}
+
+.alert-btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  flex: 1; /* ให้ปุ่มกว้างเท่าๆ กัน */
+}
+
+.alert-btn.confirm {
+  background: #3b82f6; /* สีน้ำเงินหลัก */
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.alert-btn.confirm:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.alert-btn:active {
+  transform: scale(0.96);
+}
+
+.alert-btn.cancel {
+  background: #334155; /* สีเทาเข้มสไตล์ดาร์กโหมด */
+  color: #cbd5e1;
+}
+
+.alert-btn.cancel:hover {
+  background: #475569;
+  color: #ffffff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ---------------------- Loading Overlay ---------------------- */
+
+.alert-loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 13, 25, 0.7); /* โทนมืดน้ำเงินเข้ม */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease-in-out;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(5px);
+  padding: 10px;
+}
+
+.alert-loading-overlay.hide {
+  opacity: 0;
+}
+
+.alert-loading-box {
+  padding: 24px 28px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 320px;
+  min-width: 250px;
+  animation: popIn 0.25s ease-in-out;
+  font-size: 16px;
+  font-weight: 500;
+  color: #60a5fa; /* ข้อความโหลดดิ้งสีฟ้า */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.alert-loading-box span {
+  display: flex;
+  animation: spin 1s infinite linear;
+  color: #3b82f6;
+}
+
+/* --- Notification CSS (Toast) --- */
+
+#toast-container {
+  position: fixed;
+  top: 24px;
+  right: 0;
+  z-index: 99999;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast-notif {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+  background-color: #1e293b; /* พื้นหลังกล่อง Toast เป็นสีดาร์ก */
+  color: #f8fafc;
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+  font-weight: 500;
+  min-width: 250px;
+  pointer-events: auto;
+  border-left: 4px solid #3b82f6; /* ใช้เส้นขอบแค่ด้านซ้ายให้ดูโมเดิร์น */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  justify-content: center;
+  animation: slideInBottom 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* สีตามสถานะ (Border Left) */
+.toast-notif.toast-success { border-left-color: #10b981; }
+.toast-notif.toast-error { border-left-color: #ef4444; }
+.toast-notif.toast-warning { border-left-color: #f59e0b; }
+.toast-notif.toast-info { border-left-color: #3b82f6; }
+
+.toast-icon {
+  font-size: 18px;
+}
+
+/* อนิเมชันตอนหายไป */
+.toast-notif.fade-out {
+  animation: slideInTop 0.4s ease-in forwards;
+}
+
+@keyframes slideInBottom {
+  0% { transform: translateY(120%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInTop {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* สำหรับจอมือถือ */
+@media (max-width: 600px) {
+  #toast-container {
+    top: 20px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 90%;
+    align-items: center;
+  }
+
+  .toast-notif {
+    transform: translateY(-120%);
+    animation: slideInDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .toast-notif.fade-out {
+    animation: slideOutUp 0.4s ease-in forwards;
+  }
+
+  @keyframes slideInDown {
+    0% { transform: translateY(-120%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slideOutUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-120%); opacity: 0; }
+  }
+}

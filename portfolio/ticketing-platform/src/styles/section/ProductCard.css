@@ -1,0 +1,307 @@
+/* =========================================
+   Interactive Ticket Card Styles (Premium Dark Blue)
+   ========================================= */
+.ticket-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  /* ปรับเงาให้ดูมีมิติมากขึ้นบนพื้นหลังดาร์กโหมด */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  color: #f8fafc;
+  /* เปลี่ยนพื้นหลังการ์ดเป็นสีกรมท่าเข้ม */
+  background-color: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  min-height: 380px;
+  cursor: pointer;
+
+  -webkit-mask-image:
+    radial-gradient(circle at 0 75%, transparent 15px, black 16px),
+    radial-gradient(circle at 100% 75%, transparent 15px, black 16px);
+  -webkit-mask-size: 51% 100%;
+  -webkit-mask-position: left, right;
+  -webkit-mask-repeat: no-repeat;
+  user-select: none;
+}
+
+.ticket-card.hide {
+  opacity: 0 !important;
+}
+
+.ticket-card.hiden {
+  filter: grayscale(0.5);
+  opacity: 0.5;
+}
+
+.ticket-card:hover {
+  opacity: 0.95;
+  /* โฮเวอร์แล้วมีแสงสีฟ้าเรืองแสงอ่อนๆ */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(59, 130, 246, 0.15);
+}
+
+/* 🌟 ภาพพื้นหลังของตั๋ว */
+.ticket-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  background-image: var(--ticket-bg);
+}
+
+/* ฟิลเตอร์สีกรมท่า: สว่างตอนปิด มืดลงตอนกางออก */
+.ticket-bg::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(7, 13, 25, 0.2) 0%, rgba(7, 13, 25, 0.6) 100%);
+  transition: all 0.4s ease;
+}
+
+.ticket-card.expanded .ticket-bg::after {
+  backdrop-filter: blur(8px);
+  background: linear-gradient(to bottom, rgba(7, 13, 25, 0.5) 0%, rgba(7, 13, 25, 0.85) 70%, rgba(7, 13, 25, 0.98) 100%);
+}
+
+/* =========================================
+   Front View Elements
+   ========================================= */
+.floating-price {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  /* ปรับป้ายราคาให้เป็นกระจกสีกรมท่าโปร่งแสง */
+  background: rgba(18, 30, 59, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  color: #60a5fa; /* สีฟ้าสว่าง */
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 900;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 2;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 5px;
+}
+
+.status-card {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-card p {
+  font-size: 20px;
+  color: rgb(255, 225, 142);
+  text-shadow: 0px 0px 10px rgba(255, 225, 142, 0.3);
+}
+
+.ticket-card.expanded .floating-price {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.tap-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  transition: opacity 0.3s;
+}
+
+/* =========================================
+   Detailed View Elements (สไลด์ขึ้นมา)
+   ========================================= */
+.detailed-view {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.ticket-card.expanded .detailed-view {
+  opacity: 1;
+  transform: rotateY(0);
+  pointer-events: auto;
+}
+
+.close-details-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+.close-details-btn:hover {
+  background: rgba(239, 68, 68, 0.8); /* สีแดงตอนจะกดปิด */
+  border-color: #ef4444;
+}
+
+.ticket-main-info {
+  padding: 1.5rem;
+}
+
+.ticket-main-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.5px;
+  color: #f8fafc;
+}
+
+.ticket-main-info .desc {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+.ticket-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.t-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+}
+
+/* ปรับสี Badge ให้พรีเมียมขึ้น */
+.t-badge.promo{ background: rgba(255, 255, 255, 0.1); color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.1); }
+
+.t-badge.waiting { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #f59e0b; }
+.t-badge.closed { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+.t-badge.soldout { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #94a3b8; }
+
+.ticket-rip-line {
+  height: 0;
+  border-top: 2px dashed rgba(255, 255, 255, 0.15);
+  margin: 0 1.5rem;
+}
+
+.ticket-stub {
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ticket-price-box {
+  text-align: center;
+}
+
+.ticket-price-box .price-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.ticket-price-box .price-amount {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fad160; /* สีฟ้าสว่างล้ำๆ */
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(250, 191, 96, 0.3);
+  animation: price-slide 1.5s ease-in-out infinite;
+}
+
+@keyframes price-slide {
+  0% {scale: 1;}
+  40% {scale: 0.95; padding: 2px; opacity: 0.9;}
+  100% {scale: 1;}
+}
+
+.ticket-price-box .old-price {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.btn-buy-ticket {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-buy-ticket.active {
+  /* เปลี่ยนปุ่มกดซื้อเป็นสีน้ำเงินหลัก (Primary Blue) */
+  background: linear-gradient(135deg, #f6b53b 0%, #eb6025 100%);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(235, 100, 37, 0.4);
+}
+
+.btn-buy-ticket.active:hover {
+   background: linear-gradient(135deg, #de9d24 0%, #c74a15 100%);
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(235, 116, 37, 0.5);
+}
+
+.btn-buy-ticket.disabled {
+  background: rgba(255, 255, 255, 0.05);
+  color: #64748b;
+  cursor: not-allowed;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,139 @@
+.banner-warp {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  display: flex;
+  background-color: rgb(0, 0, 0);
+}
+
+.banner-container.full {
+  max-width: 100% !important;
+}
+
+@media (min-width: 900px) {
+  .banner-container {
+    margin-top: 40px;
+    border-radius: 16px;
+  }
+
+  .banner-container.full {
+    margin-top: 0px !important;
+    border-radius: 0px !important;
+  }
+}
+
+.banner-slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* 🌟 1. กล่องครอบสไลด์ */
+.banner-slide-wrapper {
+  flex: 0 0 100%; 
+  width: 100%;
+  aspect-ratio: 2.4; /* ล็อกสัดส่วน 1200:500 (12/5 = 2.4) เพื่อไม่ให้ความสูงกระโดดไปมา */
+  position: relative; /* สำคัญมาก! สำหรับยึดภาพเบลอไว้ข้างหลัง */
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🌟 1.5 ภาพเบลอเป็นพื้นหลัง (เติมเต็มขอบดำ) */
+.banner-bg-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ขยายเต็มกรอบเสมอ */
+  filter: blur(15px); /* ระดับความเบลอ */
+  transform: scale(1.1); /* ขยายภาพเบลอนิดนึงไม่ให้เห็นขอบใสๆ */
+  opacity: 0.5; /* ลดความสว่างของพื้นหลัง ให้ภาพหลักเด่นขึ้น */
+  z-index: 0;
+}
+
+/* 🌟 2. ตัวรูปภาพหลัก */
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* รูปหลักคงสัดส่วนเดิมไว้ ไม่โดนตัด */
+  object-position: center;
+  position: relative;
+  z-index: 1; /* ให้อยู่บนสุดเหนือภาพเบลอ */
+  animation: image-zoom 5s ease-in-out infinite alternate;
+}
+
+@keyframes image-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+.banner-btn {
+  position: absolute;
+  top: 50%;
+  height: 100%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 32px;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.banner-btn:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.banner-btn.left {
+  left: 0px;
+}
+
+.banner-btn.right {
+  right: 0px;
+}
+
+.banner-dots {
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+  text-align: center;
+}
+
+.banner-dot {
+  font-size: 42px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+@media (max-width: 420px) {
+  .banner-dot {
+    font-size: 38px;
+  }
+
+  .banner-btn {
+    font-size: 24px;
+  }
+}
+
+.banner-dot.active {
+  color: rgba(255, 255, 255, 0.95);
+}

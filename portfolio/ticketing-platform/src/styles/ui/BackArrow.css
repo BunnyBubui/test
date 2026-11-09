@@ -1,0 +1,34 @@
+/* ============================================
+   BackArrow.css — Premium Dark Blue Theme
+   ============================================ */
+
+.back-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8; /* สีเทาอ่อน */
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* ขอบบางๆ สไตล์ดาร์กโหมด */
+  background: rgba(15, 23, 42, 0.6); /* พื้นหลังกรมท่าโปร่งแสง */
+  transition: all 0.25s ease;
+  user-select: none;
+  margin: 10px;
+  margin-top: 20px;
+  position: sticky;
+  top: 70px;
+  left: 10px;
+  z-index: 999;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.back-arrow:hover {
+  background: #3b82f6; /* สีน้ำเงินหลัก */
+  border-color: #3b82f6;
+  color: #ffffff;
+  transform: translateX(-2px); /* เพิ่มลูกเล่นขยับซ้ายนิดนึงตอนโฮเวอร์ */
+}

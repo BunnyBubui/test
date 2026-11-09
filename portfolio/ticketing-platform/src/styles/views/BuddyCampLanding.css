@@ -1,0 +1,586 @@
+/* =========================================
+   Buddy Camp 2 - Apple Style Landing Page
+   ========================================= */
+.bc-landing-container {
+    background-color: #0f172a;
+    color: #f8fafc;
+    position: relative;
+    overflow-x: clip;
+    /* 🌟 สำคัญ: ทำให้ sticky ล็อกหน้าจอได้สมบูรณ์ */
+}
+
+/* ─── 1. Hero Sticky Section ─── */
+.bc-hero-wrapper {
+    position: relative;
+    height: 400vh;
+}
+
+.bc-hero-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bc-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/demo-placeholder.svg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.4);
+    z-index: 0;
+    transition: filter 0.5s;
+}
+
+.bc-hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+.bc-scroll-text {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(50px);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.bc-scroll-text.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+}
+
+.bc-scroll-text.past {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-50px);
+}
+
+.text-gold {
+    color: #fbbf24;
+}
+
+/* ─── 2. Date & Map Section ─── */
+.bc-map-section {
+    position: relative;
+    padding: 100px 20px;
+    background: linear-gradient(180deg, transparent 0%, #0f172a 100%);
+    z-index: 20;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bc-map-card {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(100px) scale(0.9);
+    transition: all 1s ease-out;
+}
+
+.bc-map-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.bc-map-iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 16px;
+    margin-top: 1.5rem;
+    border: none;
+}
+
+/* ─── 3. Sliding Door & Flash Effect ─── */
+.bc-door-wrapper {
+    position: relative;
+    height: 350vh;
+    /* 🌟 ความสูงกล่องแม่ เพื่อล็อกจอตอนเปิดประตู */
+}
+
+.bc-door-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.bc-artists-group-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/demo-placeholder.svg');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    z-index: 0;
+    filter: blur(10px);
+}
+
+.bc-door-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #070b14;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 2px solid #fbbf24;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+    will-change: transform;
+    /* 🌟 หัวใจความสมูท: ให้การขยับมีความหน่วงแบบนุ่มนวล (Ease Out) */
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bc-door-text {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fbbf24;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+    text-align: center;
+}
+
+.bc-door-text-last {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 673px) {
+    .bc-door-text {
+        font-size: 24px;
+    }
+
+    .bc-door-text-last {
+        font-size: 20px;
+    }
+}
+
+/* 🌟 2. เพิ่มความสมูทให้แสงแฟลช */
+.bc-flash-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-out;
+    /* 🌟 ให้แสงค่อยๆ สว่าง */
+}
+
+/* ─── 4. Artist Horizontal Pinned Scroll ─── */
+.bc-artist-scroll-wrapper {
+    position: relative;
+    background: #0f172a;
+    z-index: 30;
+}
+
+.bc-artist-scroll-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: radial-gradient(circle at 30% 50%, rgba(30, 41, 59, 1) 0%, rgba(15, 23, 42, 1) 80%);
+}
+
+.bc-artist-horizontal-track {
+    display: flex;
+    height: 100%;
+    will-change: transform;
+    /* 🌟 ทำให้การสไลด์ซ้ายขวา ไหลลื่นเหมือนมีแรงเฉื่อย ไม่กระตุกตามลูกกลิ้งเมาส์ */
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* เลย์เอาต์ของศิลปินแต่ละคน (1 จอเต็ม) */
+.bc-artist-panel {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* ฝั่งซ้าย: รูปศิลปินเด่นๆ ลอยๆ */
+.bc-artist-photo-large {
+    flex: 1;
+    height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(20px 20px 30px rgba(0, 0, 0, 0.8));
+}
+
+.bc-artist-photo-large img {
+    max-height: 100%;
+    max-width: 120%;
+    object-fit: contain;
+    transform: scale(1.1);
+}
+
+/* แสงออร่าด้านหลังศิลปิน */
+.bc-artist-aura {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vh;
+    height: 60vh;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.2) 0%, transparent 60%);
+    z-index: -1;
+    border-radius: 50%;
+}
+
+/* ฝั่งขวา: ข้อมูลวง */
+.bc-artist-info-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 4rem;
+    z-index: 10;
+}
+
+.bc-band-name-large {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #fbbf24;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1600px) {
+    .bc-band-name-large {
+        font-size: 4rem;
+    }
+}
+
+/* ─── Class สำหรับหัวข้อ LINE UP (ย้ายมาจาก Inline Style) ─── */
+.bc-lineup-title {
+    position: absolute;
+    top: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: #60a5fa;
+    z-index: 100;
+    letter-spacing: 5px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+}
+
+/* =========================================
+   📱 Responsive Adjustments (Mobile & Tablet)
+   ========================================= */
+@media (max-width: 1024px) {
+    .bc-band-name-large {
+        font-size: 3.5rem;
+    }
+
+    .bc-member-name-large {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .bc-scroll-text {
+        font-size: 1.8rem;
+    }
+
+    .bc-door-text {
+        font-size: 2rem;
+    }
+
+    /* ปรับหัวข้อ LINE UP ให้เล็กลง */
+    .bc-lineup-title {
+        font-size: 2rem;
+        top: 10vh;
+    }
+
+    /* ปรับ Layout กล่องศิลปินเป็นแนวตั้ง */
+    .bc-artist-panel {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 18vh;
+        /* ดันเนื้อหาลงมาไม่ให้ชนหัวข้อ */
+        gap: 1rem;
+    }
+
+    /* ส่วนข้อมูลศิลปิน (ข้อความ) ให้อยู่ด้านบน */
+    .bc-artist-info-right {
+        order: 1;
+        padding-left: 0;
+        text-align: center;
+        align-items: center;
+        flex: 0 0 auto;
+    }
+
+    .bc-band-name-large {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .bc-member-name-large {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }
+
+    .bc-performance-time-large {
+        font-size: 1.1rem;
+        padding: 0.5rem 1.5rem;
+        margin-top: 1rem;
+    }
+
+    /* ส่วนรูปศิลปิน ให้อยู่ด้านล่าง */
+    .bc-artist-photo-large {
+        order: 2;
+        height: 50vh;
+        /* ลดความสูงรูปไม่ให้ล้น */
+        width: 100%;
+        flex: 1;
+        align-items: flex-end;
+    }
+
+    .bc-artist-photo-large img {
+        max-width: 100%;
+        transform: scale(1);
+        /* ยกเลิกการซูม (scale) เพื่อให้รูปพอดีจอมือถือ */
+    }
+
+    /* ลดขนาดแสงออร่าด้านหลังศิลปินลง */
+    .bc-artist-aura {
+        width: 40vh;
+        height: 40vh;
+        bottom: 10%;
+    }
+}
+
+.bc-member-name-large {
+    font-size: 2rem;
+    color: #e2e8f0;
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+.bc-performance-time-large {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+    align-self: flex-start;
+}
+
+@media (max-width: 480px) {
+    .bc-lineup-title {
+        font-size: 1.5rem;
+        top: 8vh;
+    }
+
+    .bc-artist-panel {
+        padding-top: 15vh;
+    }
+
+    .bc-band-name-large {
+        font-size: 2rem;
+    }
+
+    .bc-member-name-large {
+        font-size: 1rem;
+    }
+
+    .bc-artist-photo-large {
+        height: 45vh;
+    }
+
+    .bc-performance-time-large {
+        font-size: 1rem;
+    }
+}
+
+/* ─── 5. Transition to Shop ─── */
+.bc-shop-trigger {
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bc-btn-enter-shop {
+    background: linear-gradient(135deg, #fbbf24, #d97706);
+    color: #0f172a;
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.4);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.bc-btn-enter-shop:hover {
+    transform: scale(1.05);
+}
+
+/* Shop Container Reveal */
+.bc-shop-container {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s ease-in;
+    background: #1e293b;
+    border-top: 2px solid #fbbf24;
+}
+
+.bc-shop-container.open {
+    max-height: 3000px;
+    opacity: 1;
+    padding: 50px 20px;
+}
+
+/* ─── Ticket Price Cards ─── */
+.bc-ticket-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.bc-ticket-box {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.bc-ticket-box.promo {
+    background: rgba(197, 157, 26, 0.1) !important;
+}
+
+.bc-ticket-date {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+}
+
+.bc-ticket-price {
+    font-size: 2.5rem;
+    color: #fbbf24;
+    font-weight: 900;
+    margin: 1rem 0;
+}
+
+.bc-rules-box {
+    max-width: 800px;
+    margin: 3rem auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+    .bc-scroll-text {
+        font-size: 1.8rem;
+    }
+
+    .bc-door-text {
+        font-size: 2rem;
+    }
+
+    .bc-artist-panel {
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .bc-artist-photo-large {
+        height: 60vh;
+        order: 2;
+    }
+
+    .bc-artist-info-right {
+        order: 1;
+        padding-left: 0;
+        text-align: center;
+        align-items: center;
+        margin-top: 10vh;
+    }
+
+    .bc-band-name-large {
+        font-size: 3rem;
+    }
+
+    .bc-performance-time-large {
+        font-size: 1.2rem;
+    }
+}

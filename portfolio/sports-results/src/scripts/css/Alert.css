@@ -1,0 +1,132 @@
+.alert-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease-in-out;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(5px);
+  padding: 10px;
+}
+
+.alert-overlay.hide {
+  opacity: 0;
+}
+
+.alert-box {
+  background: white;
+  padding: 24px 28px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 320px;
+  min-width: 250px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  animation: popIn 0.25s ease-in-out;
+
+}
+
+.alert-box h3 {
+  color: rgb(95, 61, 162);
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.alert-box p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.alert-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.alert-btn {
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.alert-btn.confirm {
+  background: #620ccb;
+}
+
+.alert-btn.confirm:hover {
+  background: rgb(124, 26, 253);
+}
+
+.alert-btn.cancel {
+  background: #999;
+}
+
+.alert-btn.cancel:hover {
+  background: #777;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* ---------------------- Loading Overlay ---------------------- */
+
+.alert-loading-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease-in-out;
+  transition: opacity 0.3s ease;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  
+  backdrop-filter: blur(5px);
+}
+
+.alert-loading-overlay.hide {
+  opacity: 0;
+}
+
+.alert-loading-box {
+  padding: 24px 28px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 320px;
+  min-width: 250px;
+  animation: popIn 0.25s ease-in-out;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-loading-box span {
+  display: flex;
+  animation: spin 1s infinite linear;
+}

@@ -1,0 +1,20 @@
+:root {
+    --primary-blue: #3b82f6;
+    --accent-blue: #60a5fa;
+}
+
+.pa-hero-contact {
+    font-size: 14px;
+    color: var(--accent-blue);
+    font-weight: 600;
+    padding-top: 10px;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.2s;
+    margin-bottom: 10px;
+}
+
+.pa-hero-contact:hover {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}

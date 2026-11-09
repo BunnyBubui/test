@@ -1,0 +1,38 @@
+/* --- Highlight Info Bar --- */
+.info-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* เงาให้ดูลอยขึ้นมา */
+  margin-top: -80px; /* ดึงขึ้นไปทับ Hero Image นิดหน่อย */
+  position: relative;
+  z-index: 10;
+  margin-bottom: 50px;
+  justify-content: space-around; /* กระจายเนื้อหาให้เต็มพื้นที่ */
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4b5563; /* สีเทาเข้ม */
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.info-item span strong {
+  color: #1f2937; /* สีดำเข้ม สำหรับตัวเน้น */
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .info-bar {
+    margin-top: -40px;
+    padding: 15px;
+    flex-direction: column; /* เปลี่ยนให้เรียงแนวตั้งบนมือถือ */
+    align-items: flex-start;
+  }
+}

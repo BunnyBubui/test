@@ -1,0 +1,114 @@
+.top {
+    margin: 0px 0px;
+}
+
+.img-slide-box {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fade-in 1s;
+    overflow: hidden;
+}
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slider-track-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.slider-image:hover {
+    transform: scale(1.02);
+}
+
+.image-slider button {
+    position: absolute;
+    height: 100%;
+    top: 0%;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.image-slider .prev {
+    left: 0px;
+}
+
+.image-slider .next {
+    right: 0px;
+}
+
+.image-slider button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-slider button {
+        padding: 10px 15px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .img-slide-box {
+        width: 100%;
+    }
+
+    .image-slider button {
+        padding: 8px 12px;
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,260 @@
+/* ====================================================
+   Loading Screen - Premium Dark Blue Theme
+   ==================================================== */
+
+.loading-warp {
+  /* 🌟 บังคับอยู่ตำแหน่ง Fixed ทับทุกอย่างบนหน้าจอ */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2147483647; /* 🌟 Z-index สูงสุดทะลุทุกมิติ */
+  
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://thasalabaanrao.net/pictures/Banner03.jpg");
+  
+  /* รองรับการ Fade in / Fade out */
+  opacity: 0;
+  pointer-events: none; /* ป้องกันการคลิกระหว่างโหลด */
+}
+
+/* 🌟 แอนิเมชันตอนเปิด (Fade In + Blur In) */
+.loading-warp.fade-in {
+  animation: blurFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: all;
+}
+
+/* 🌟 แอนิเมชันตอนปิด (Fade Out + Blur Out) */
+.loading-warp.fade-out {
+  animation: blurFadeOut 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+.loading-screen.new {
+  /* ปรับโทนสี Accent ให้เป็นน้ำเงินแบบ Premium Dark Blue */
+  --accent: #3b82f6;      /* น้ำเงินหลัก */
+  --accent-2: #60a5fa;    /* ฟ้าสว่าง */
+  --surface: rgba(15, 23, 42, 0.65); /* พื้นหลังการ์ดสีกรมท่าโปร่งแสง */
+  --surface-border: rgba(255, 255, 255, 0.08); /* เส้นขอบบางๆ */
+  --text: #f8fafc;        /* สีข้อความหลัก */
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* 🌟 พื้นหลังสีดำอมกรมท่าเข้มๆ ให้ความรู้สึกหรูหรา */
+  background-color: rgba(7, 13, 25, 0.75); 
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+/* 🌟 Glassmorphism Card (สไตล์ Dark Mode) */
+.loading-card.glass {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.4); /* เงาลึกขึ้น */
+  padding: 32px 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 🌟 แอนิเมชัน Card เลื่อนขึ้นมาแบบนุ่มนวล */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.animate-fade-up.delay {
+  animation-delay: 0.4s;
+}
+
+/* ====================================================
+   Animations (Keyframes)
+   ==================================================== */
+
+@keyframes blurFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(16px);
+  }
+}
+
+@keyframes blurFadeOut {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(16px);
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+@keyframes slideUpFade {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ====================================================
+   Background Orbs (แสงฟุ้งดาร์กโหมด)
+   ==================================================== */
+
+.bg-orb {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(100px); /* เพิ่มความเบลอให้แสงซอฟต์ลง */
+  opacity: 0.25;      /* ลดความทึบแสงลง เพื่อไม่ให้แย่งซีน */
+  animation: float 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.orb-1 { background: var(--accent); top: -10%; left: -10%; }
+.orb-2 { background: #1e293b; bottom: -10%; right: -10%; } /* ใช้สีกรมท่าแทนเพื่อให้ดูลึกลับ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+/* ====================================================
+   Logo & Loading Elements
+   ==================================================== */
+
+.logo-stack {
+  position: relative;
+  max-width: 100px;
+  max-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.logo-stack .halo {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(59, 130, 246, 0.25), transparent); /* แสงรัศมีสีน้ำเงิน */
+  filter: blur(10px);
+  animation: breathe 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(0.9); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.spinner { margin-top: 8px; }
+
+.spinner-svg {
+  width: 60px;
+  height: 60px;
+  transform-origin: center;
+  animation: spin 2s linear infinite;
+}
+
+.spinner-svg .track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.05); /* เส้นบางๆ สไตล์ดาร์กโหมด */
+  stroke-width: 4;
+}
+
+.spinner-svg .arc {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 80 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+@keyframes dash {
+  0% { stroke-dasharray: 1 200; stroke-dashoffset: 0; }
+  50% { stroke-dasharray: 90 200; stroke-dashoffset: -35; }
+  100% { stroke-dasharray: 90 200; stroke-dashoffset: -124; }
+}
+
+/* ====================================================
+   Text & Progress Bar
+   ==================================================== */
+
+.loading-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+  color: var(--text);
+}
+
+.loading-tip {
+  font-size: 0.9rem;
+  color: #94a3b8; /* สีเทาอมฟ้าสไตล์ดาร์กเนวี่ */
+  min-height: 20px;
+}
+
+.loading-message {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 20px;
+}
+
+.loading-progress {
+  width: 280px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.08); /* พื้นหลังหลอดโหลดบางๆ */
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 10px;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: inherit;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4); /* เรืองแสงอ่อนๆ ไม่แยงตา */
+}
+
+.loading-progress.is-indeterminate .progress-fill {
+  position: absolute;
+  width: 40%;
+  animation: indet 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes indet {
+  0% { left: -40%; width: 40%; }
+  50% { left: 30%; width: 60%; }
+  100% { left: 100%; width: 40%; }
+}

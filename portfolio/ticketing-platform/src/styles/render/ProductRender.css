@@ -1,0 +1,69 @@
+/* ============================================
+   Products.css — Premium Dark Blue Theme
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Prompt:wght@400;500;600;700&display=swap');
+
+/* ─── Container ─────────────────────────────── */
+.products-container {
+  padding: 28px 0px 48px;
+}
+
+@media (min-width: 768px) {
+  .products-container {
+    padding: 32px 80px 64px;
+  }
+}
+
+.products-container h2 {
+  font-size: 22px;
+  font-weight: 600;
+  /* เปลี่ยนสีหัวข้อให้เป็นสีสว่างเพื่อให้เด่นบนพื้นหลังดาร์กโหมด */
+  color: #f8fafc;
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Promo Banner ───────────────────────────── */
+.promo-content {
+  display: flex;
+  padding: 0px 5px;
+}
+
+.promo-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  /* ปรับธีมป้ายโปรโมชันเป็นโทน Dark Blue */
+  color: #60a5fa; /* สีข้อความฟ้าสว่าง */
+  background: rgba(15, 23, 42, 0.8); /* พื้นหลังกรมท่าโปร่งแสง */
+  border: 1px solid rgba(96, 165, 250, 0.3); /* ขอบสีฟ้า */
+  border-radius: 99px;
+  padding: 6px 16px;
+  margin: 12px 0 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 10px rgba(59, 130, 246, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+/* ─── Product Grid ───────────────────────────── */
+.body-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(1fr));
+  gap: 10px;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+@media (min-width: 400px) {
+  .body-items {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+}
+
+@media (min-width: 545px) {
+  .body-items {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+}

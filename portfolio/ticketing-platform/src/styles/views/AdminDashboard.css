@@ -1,0 +1,423 @@
+/* =========================================
+   Admin Dashboard - Single Page Clean UI
+   ========================================= */
+
+.admin-sp-layout {
+    min-height: 100vh;
+    background-color: #0f172a;
+    color: #f8fafc;
+    font-family: 'Kanit', sans-serif;
+    padding-bottom: 50px;
+}
+
+/* ─── HEADER ─── */
+.admin-sp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e293b;
+    padding: 1rem 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-sp-brand h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #f8fafc;
+}
+
+.admin-sp-brand span {
+    color: #fbbf24;
+}
+
+.admin-badge {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.admin-sp-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* ─── BUTTONS ─── */
+button {
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #fbbf24;
+    color: #0f172a;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background: #f59e0b;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-danger-outline {
+    background: transparent;
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-danger-outline:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    padding: 5px;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: inherit;
+}
+
+.btn-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* ─── MAIN CONTENT ─── */
+.admin-sp-main {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ─── STATS ─── */
+.admin-sp-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-info p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.stat-info h3 {
+    margin: 5px 0 0;
+    font-size: 1.8rem;
+    color: #f8fafc;
+}
+
+.stat-card.revenue {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), transparent);
+    border-color: rgba(251, 191, 36, 0.3);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.stat-card.revenue h3 {
+    color: #fbbf24;
+    font-size: 2.2rem;
+}
+
+.stat-card.success {
+    background: linear-gradient(135deg, rgba(36, 251, 122, 0.1), transparent);
+    border-color: rgba(90, 251, 36, 0.3);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.stat-card.success h3 {
+    color: #4ffb24;
+    font-size: 2.2rem;
+}
+
+.stat-card.not-success {
+    background: linear-gradient(135deg, rgba(251, 36, 36, 0.1), transparent);
+    border-color: rgba(251, 36, 36, 0.3);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.stat-card.not-success h3 {
+    color: #ff4343;
+    font-size: 2.2rem;
+}
+
+/* ─── CONTROLS ─── */
+.admin-sp-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.search-box {
+    flex: 1;
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 12px 0;
+    outline: none;
+    font-size: 1rem;
+}
+
+.clear-icon {
+    cursor: pointer;
+    color: #94a3b8;
+}
+
+.clear-icon:hover {
+    color: white;
+}
+
+/* ─── TABLE ─── */
+.admin-sp-table-container {
+    background: #1e293b;
+    border-radius: 16px;
+    overflow-x: auto;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.admin-sp-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-sp-table th {
+    background: #0f172a;
+    color: #94a3b8;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.admin-sp-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
+}
+
+.admin-sp-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.fw-bold {
+    font-weight: bold;
+    color: #f8fafc !important;
+}
+
+.txt-gold {
+    color: #fbbf24 !important;
+    font-weight: bold;
+}
+
+.txt-muted {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.action-btns {
+    display: flex;
+    gap: 10px;
+}
+
+/* ─── STATUS DROPDOWN ─── */
+.status-select {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.status-select.s-0 {
+    color: #fbbf24;
+    border-color: #fbbf24;
+}
+
+.status-select.s-1 {
+    color: #60a5fa;
+    border-color: #60a5fa;
+}
+
+.status-select.s-2 {
+    color: #c084fc;
+    border-color: #c084fc;
+}
+
+.status-select.s-3 {
+    color: #4ade80;
+    border-color: #4ade80;
+}
+
+.status-select option {
+    background: #1e293b;
+    color: white;
+}
+
+/* ─── PAGINATION ─── */
+.admin-sp-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.admin-sp-pagination button {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.admin-sp-pagination button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* ─── MODALS ─── */
+.admin-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.admin-modal-box {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.admin-modal-box h3 {
+    margin: 0 0 1.5rem;
+    color: #fbbf24;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 2rem;
+}
+
+.admin-slip-preview {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+.admin-slip-preview img {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.close-slip-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

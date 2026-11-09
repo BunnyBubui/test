@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Thai:wght@100..800&display=swap');
+
+* {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}
+
+@keyframes scale-up {
+    0% {
+        scale: 0.95;
+        opacity: 0;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================
+   🌟 ระบบแอนิเมชันตอนเลื่อนจอ (Scroll Animations)
+========================================= */
+
+/* ... ส่วน delay คงไว้เหมือนเดิม ... */
+
+/* 🌟 แก้ไข: เปลี่ยนจาก % เป็น px (พิกเซล) เพื่อให้ระยะทางคงที่และควบคุมได้ง่าย */
+.animate-fade-top {
+    transform: translateY(50px); /* ลอยขึ้นมาจากด้านล่าง 50px */
+}
+
+.animate-fade-left {
+    transform: translateX(50px); /* บินมาจากทางซ้าย 50px */
+}
+
+.animate-fade-right {
+    transform: translateX(-50px); /* บินมาจากทางขวา 50px */
+}
+
+.animate-fade-bottom {
+    transform: translateY(-50px); /* ทิ้งตัวลงมาจากด้านบน 50px */
+}
+
+/* ตั้งค่าเริ่มต้นที่ใช้ร่วมกัน */
+.animate-fade-right, 
+.animate-fade-left, 
+.animate-fade-top, 
+.animate-fade-bottom {
+    opacity: 0;
+    will-change: opacity, transform, filter; 
+    filter: blur(5px); 
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important; 
+}
+
+/* สถานะเมื่อแสดงผล: โชว์ชัดเจนและเด้งกลับที่เดิม */
+.animate-fade-top.show,
+.animate-fade-left.show,
+.animate-fade-right.show,
+.animate-fade-bottom.show {
+    opacity: 1;
+    transform: translate(0, 0); /* เด้งกลับมาที่จุด 0, 0 */
+    filter: blur(0);
+}
+
+/* 🌟 หน่วงเวลา (Delay) เพื่อให้โผล่มาทีละอัน (Staggered effect) */
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.25s !important; }
+.delay-3 { transition-delay: 0.4s !important; }
+.delay-4 { transition-delay: 0.55s !important; }
+.delay-5 { transition-delay: 0.7s !important; }
+
+.show:hover {
+    transition-delay: 0s !important;
+}

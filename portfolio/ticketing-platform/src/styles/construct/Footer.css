@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&family=Playfair+Display:wght@700&display=swap');
+
+/* ====================================================
+   Footer - Premium Dark Blue Theme
+   ==================================================== */
+
+.footer-wrap {
+  position: relative;
+  /* ปรับพื้นหลังให้เป็นดาร์กเนวี่ (Dark Navy) แบบพรีเมียม */
+  background: linear-gradient(135deg, #070d19 0%, #0f172a 50%, #1e293b 100%);
+  color: #f8fafc;
+  text-align: center;
+  padding: 52px 24px 32px;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* เส้นคั่นบางๆ ให้ดูเป็นสัดส่วน */
+}
+
+/* Decorative top border */
+.footer-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  /* ไล่สีเส้นขอบด้านบนเป็นโทนน้ำเงิน-ฟ้า */
+  background: linear-gradient(90deg, transparent, #3b82f6, #60a5fa, #3b82f6, transparent);
+  opacity: 0.7;
+}
+
+/* Glowing orbs (แสงฟุ้ง) */
+.footer-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.15; /* ลดความสว่างลงไม่ให้กวนสายตา */
+}
+
+.footer-orb-1 {
+  width: 280px;
+  height: 280px;
+  background: #3b82f6; /* น้ำเงินหลัก */
+  top: -80px;
+  left: -60px;
+  animation: orb-drift 8s ease-in-out infinite alternate;
+}
+
+.footer-orb-2 {
+  width: 220px;
+  height: 220px;
+  background: #60a5fa; /* ฟ้าสว่าง */
+  bottom: -60px;
+  right: -40px;
+  animation: orb-drift 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes orb-drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(30px, 20px); }
+}
+
+/* Decorative dots grid */
+.footer-dots {
+  position: absolute;
+  inset: 0;
+  /* จุดไข่ปลาสีฟ้าอ่อนๆ */
+  background-image: radial-gradient(circle, rgba(96, 165, 250, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Logo / icon badge */
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6); /* โทนน้ำเงิน */
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.4);
+  margin-bottom: 20px;
+  font-size: 26px;
+  animation: badge-pulse 3s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+  50% { box-shadow: 0 0 35px rgba(59, 130, 246, 0.7); }
+}
+
+/* Main org link */
+.footer-link {
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.footer-title {
+  font-weight: 600;
+  font-size: 17px;
+  color: #f8fafc;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  transition: color 0.3s;
+  margin: 0;
+}
+
+.footer-link:hover .footer-title {
+  color: #60a5fa; /* โฮเวอร์เป็นสีฟ้า */
+}
+
+/* Divider */
+.footer-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px auto;
+  max-width: 320px;
+}
+
+.footer-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.3), transparent);
+}
+
+.footer-divider-gem {
+  width: 6px;
+  height: 6px;
+  background: #60a5fa; /* เพชรตรงกลางสีฟ้า */
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.8);
+}
+
+/* Address */
+.footer-address {
+  font-size: 13.5px;
+  color: #94a3b8; /* สีเทาสว่าง */
+  line-height: 1.85;
+  margin: 0 0 20px;
+  font-weight: 300;
+}
+
+/* Author line */
+.footer-author {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(248, 250, 252, 0.4); /* สีเทาจางมากๆ */
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.footer-author span {
+  color: rgba(96, 165, 250, 0.8);
+}
+
+.footer-author a {
+  color: #e2e8f0;
+  transition: color 0.2s;
+}
+
+.footer-author a:hover {
+  color: #60a5fa;
+}
+
+/* Hover underline for link */
+.footer-link-underline {
+  display: block;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #60a5fa, transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  margin-top: 3px;
+}
+
+.footer-link:hover .footer-link-underline {
+  transform: scaleX(1);
+}
+
+/* --- กลุ่มของช่องทางการติดต่อ --- */
+.footer-contact-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+/* --- ปุ่มคัดลอกเบอร์โทร (ปรับให้เป็นแบบ Dark Mode) --- */
+.footer-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.08); /* พื้นหลังปุ่มโปร่งแสง */
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+.footer-contact:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* สถานะเมื่อกดคัดลอกสำเร็จ */
+.footer-contact.copied {
+  background-color: rgba(16, 185, 129, 0.2); /* สีเขียวโปร่งแสง */
+  border-color: #10b981;
+  color: #34d399;
+  transform: scale(1.05);
+}
+
+/* --- ปุ่ม Social Media --- */
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn.facebook {
+  background-color: #1877F2;
+}
+
+.social-btn.line {
+  background-color: #00B900;
+}
+
+.social-btn:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}

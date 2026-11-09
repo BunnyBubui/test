@@ -1,0 +1,158 @@
+/* --- EditOrderModal.css --- */
+.eom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: eomFadeIn 0.3s ease-in-out;
+}
+
+.eom-box {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 650px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 85vh;
+    animation: eomPopUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ซ่อน Scrollbar ให้ดูสะอาดตา */
+.eom-box::-webkit-scrollbar { width: 6px; }
+.eom-box::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+.eom-box h3 {
+    color: #1e293b;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px dashed #e2e8f0;
+    padding-bottom: 16px;
+}
+
+.eom-box h3 svg {
+    color: #6366f1;
+}
+
+.eom-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.eom-row-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.eom-input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 150px;
+}
+
+.eom-input-group label {
+    font-weight: 600;
+    color: #475569;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.eom-input-group input,
+.eom-input-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #f8fafc;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.eom-input-group input:focus,
+.eom-input-group select:focus {
+    border-color: #6366f1;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* --- Section รายการสินค้า --- */
+.eom-section-title {
+    margin: 16px 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.eom-item-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.eom-item-card h4 {
+    margin: 0 0 12px 0;
+    font-size: 15px;
+    color: #4f46e5;
+}
+
+.eom-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 2px dashed #e2e8f0;
+}
+
+.eom-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+.eom-btn-cancel {
+    background: #f1f5f9;
+    color: #475569;
+}
+.eom-btn-cancel:hover { background: #e2e8f0; color: #1e293b; }
+
+.eom-btn-save {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+.eom-btn-save:hover { background: linear-gradient(135deg, #4338ca, #4f46e5); transform: translateY(-2px); }
+
+/* Animations */
+@keyframes eomFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes eomPopUp { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+@media (max-width: 600px) {
+    .eom-box { width: 95%; padding: 20px; }
+    .eom-row-group { flex-direction: column; gap: 16px; }
+}

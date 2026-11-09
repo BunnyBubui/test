@@ -1,0 +1,67 @@
+.search-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #5f3cff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-history-warp {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 1rem;
+}
+
+.search-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 4px 12px rgba(95, 61, 162, 0.12);
+    animation: fadeInS 0.3s ease-in-out;
+    border-left: 5px solid #7b5bff;
+    max-width: 800px;
+    width: 100%;
+}
+
+.search-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-keyword {
+    font-size: 18px;
+    color: #444;
+}
+
+.search-admin {
+    margin-top: 6px;
+    font-size: 15px;
+    color: #777;
+}
+
+.search-date {
+    padding: 0px 0px 0px 50px;
+    color: #555;
+    font-size: 14px;
+}
+
+.no-search-data {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    padding: 30px 0;
+}
+
+@keyframes fadeInS {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

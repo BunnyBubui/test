@@ -1,0 +1,221 @@
+/* =========================================
+   Admin Login - Modern Glassmorphism
+   ========================================= */
+
+.al-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0f172a;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    font-family: 'Kanit', sans-serif;
+}
+
+/* ─── ออร่าพื้นหลัง (Background Glows) ─── */
+.al-glow {
+    position: absolute;
+    width: 50vh;
+    height: 50vh;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    opacity: 0.4;
+    animation: al-float 10s infinite ease-in-out alternate;
+}
+
+.al-glow-blue {
+    background: #3b82f6;
+    top: -10%;
+    left: -10%;
+}
+
+.al-glow-gold {
+    background: #fbbf24;
+    bottom: -10%;
+    right: -10%;
+    animation-delay: -5s;
+}
+
+@keyframes al-float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, 30px) scale(1.1); }
+}
+
+/* ─── กล่อง Login (Glassmorphism Box) ─── */
+.al-box {
+    background: rgba(30, 41, 59, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    z-index: 10;
+    animation: al-slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes al-slideUpFade {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── ส่วนหัว (Header) ─── */
+.al-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.al-icon-wrap {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.1));
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: #60a5fa;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+}
+
+.al-header h2 {
+    color: #f8fafc;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+    letter-spacing: 1px;
+}
+
+.al-header p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ─── ฟอร์มกรอกข้อมูล (Inputs) ─── */
+.al-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.al-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.al-input-icon {
+    position: absolute;
+    left: 1rem;
+    color: #64748b;
+    transition: color 0.3s;
+}
+
+.al-input-group input {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #f8fafc;
+    font-size: 1rem;
+    padding: 1rem 1rem 1rem 3rem; /* เผื่อที่ให้ไอคอนด้านซ้าย */
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.al-input-group input::placeholder {
+    color: #475569;
+}
+
+.al-input-group input:focus {
+    border-color: #3b82f6;
+    background: rgba(15, 23, 42, 0.8);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.al-input-group input:focus + .al-input-icon,
+.al-input-group input:not(:placeholder-shown) ~ .al-input-icon {
+    color: #60a5fa; /* เปลี่ยนสีไอคอนตอนพิมพ์ */
+}
+
+/* ─── ปุ่ม Login (Submit Button) ─── */
+.al-submit-btn {
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.al-submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+}
+
+.al-submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.al-submit-btn:disabled {
+    background: #475569;
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.al-spin {
+    animation: al-spin-anim 1s linear infinite;
+}
+
+@keyframes al-spin-anim {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ─── ลิงก์และ Footer ─── */
+.al-footer-actions {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.al-forgot-password {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.al-forgot-password:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+}
+
+.al-copyright {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.al-copyright p {
+    color: #475569;
+    font-size: 0.8rem;
+    margin: 0;
+}

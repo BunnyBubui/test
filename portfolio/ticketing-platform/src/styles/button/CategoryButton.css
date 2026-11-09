@@ -1,0 +1,39 @@
+.filter-row {
+    display: flex;
+    gap: 12px;
+    margin: 15px 0;
+    padding: 10px 20px;
+    overflow-x: auto;     
+    white-space: nowrap;  
+    scrollbar-width: thin;
+}
+
+.filter-row::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-select-main,
+.filter-select {
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+    flex-shrink: 0;
+    height: 45px;
+}
+
+.filter-select-main:hover,
+.filter-select:hover {
+    border-color: #7b5bff;
+    background: #f0ecff;
+    color: black;
+}
+
+.filter-active {
+    border-color: #7b5bff;
+    background: #7b5bff;
+    color: white;
+}

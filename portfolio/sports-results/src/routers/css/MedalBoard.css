@@ -1,0 +1,99 @@
+.medal-page {
+    margin: 30px 10px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background: url("https://pradu-game.wusab.net/pictures/0.png");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    
+    background-color: rgba(244, 244, 244, 0.8);
+    border: 1px solid rgb(155, 155, 155);
+}
+
+.medal-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+/* ===== CARD BASE ===== */
+.medal-card {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 22px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.6);
+    transition: transform .25s ease, box-shadow .25s ease;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+    height: 400px; 
+    width: 100%;
+    max-width: 300px;
+    justify-content: end;
+}
+
+.medal-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(0,0,0,.8);
+    
+}
+
+/* ===== SIZE ===== */
+.medal-card.xl { border: 2px solid rgb(255, 213, 0);}
+.medal-card.lg { border: 2px solid rgb(255, 255, 255);}
+.medal-card.md { border: 2px solid rgb(237, 162, 129);}
+
+/* ===== MEDALS ===== */
+.medals {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid white;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    padding: 0px 10px;
+    gap: 10px;
+}
+
+.medals .gold, .medals .silver, .medals .bronze {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 5px 0px;
+}
+
+/* ===== LAYOUT ===== */
+.medal-top1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.medal-top23 {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.medal-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,235 @@
+.o-overlay {
+    background: rgba(0, 0, 0, 0.95);
+    animation: fade 1s;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 9999;
+    transition: opacity 1s;
+    backdrop-filter: blur(5px);
+    transition: opacity 1s;
+}
+
+.o-overlay.hide {
+    opacity: 0;
+}
+
+.o-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.o-content img {
+    max-width: 300px;
+    position: fixed;
+    z-index: 9999;
+}
+
+.o-content img.activeSpinSpeed {
+    animation: spin-cat 0.2s linear infinite;
+}
+
+.o-content img.activeSpinSlow {
+    animation: spin-cat 0.5s linear infinite;
+}
+
+.o-content img.activeMoveCat {
+    animation: move-cat 0.3s infinite;
+}
+
+@keyframes spin-cat {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes move-cat {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    20% {
+        transform: translate(-100px, -100px);
+    }
+
+    40% {
+        transform: translate(100px, 100px);
+    }
+
+    60% {
+        transform: translate(-100px, 100px);
+    }
+
+    80% {
+        transform: translate(100px, -100px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+.o-bg-spread {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    border: 30px solid rgb(255, 153, 0);
+    border-radius: 100%;
+    opacity: 0;
+    z-index: 9999;
+}
+
+.o-bg-spread.active {
+    animation: bg-spread 0.3s;
+    opacity: 1;
+}
+
+@keyframes bg-spread {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 10;
+    }
+}
+
+.o-img {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(rgba(255, 119, 0, 0.247), rgba(0, 0, 0, 0.0));
+    position: fixed;
+    z-index: 999;
+}
+
+.retro-screen {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999999;
+    mix-blend-mode: screen;
+    background:
+        repeating-linear-gradient(0deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.02) 2px),
+        radial-gradient(circle at center,
+            rgba(255, 120, 0, 0.1),
+            rgba(0, 0, 0, 0.4));
+
+    filter:
+        blur(0.5px) contrast(1.4) brightness(1.15) saturate(1.5);
+
+    animation: retro 0.3s, retro-dance 0.2s infinite;
+}
+
+@keyframes retro {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes retro-dance {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.retro-scanline {
+    position: fixed;
+    inset: 0;
+    z-index: 999998;
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(180deg,
+            rgba(255, 255, 255, 0.06) 0px,
+            rgba(255, 255, 255, 0.02) 1px,
+            rgba(0, 0, 0, 0) 2px);
+    animation: scan-move 6s linear infinite;
+}
+
+@keyframes scan-move {
+    0% {
+        opacity: .4;
+    }
+
+    50% {
+        opacity: .1;
+    }
+
+    100% {
+        opacity: .4;
+    }
+}
+
+.retro-chromatic {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999997;
+    mix-blend-mode: overlay;
+    animation: chroma 2s infinite alternate;
+}
+
+@keyframes chroma {
+    0% {
+        filter: drop-shadow(2px 0px 0 red) drop-shadow(-2px 0px 0 cyan) blur(0.3px);
+    }
+
+    100% {
+        filter: drop-shadow(3px 0px 0 purple) drop-shadow(-3px 0px 0 lime) blur(0.5px);
+    }
+}
+
+.retro-noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999996;
+    background-image: url("https://i.imgur.com/8lLx2bL.png");
+    opacity: 0.25;
+    animation: noiseMove .2s infinite;
+}
+
+@keyframes noiseMove {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(3px, -3px);
+    }
+
+    100% {
+        transform: translate(-2px, 2px);
+    }
+}
+
+.retro-flash {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255, 200, 50, 0.8), rgba(0, 0, 0, 0));
+    opacity: 0;
+    z-index: 999995;
+    pointer-events: none;
+    animation: flashGlow 0.3s ease-out forwards;
+}
+
+@keyframes flashGlow {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}

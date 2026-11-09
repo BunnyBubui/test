@@ -1,0 +1,53 @@
+.user-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-header {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background: rgb(95, 61, 162);
+    border-radius: 0px 0px 16px 16px;
+}
+
+.user-info h1 {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+.user-menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+.user-menu-orb {
+    display: flex;
+    min-width: 300px;
+}
+
+.post-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.post-preview {
+    border: 3px solid rgb(95, 61, 162);
+    border-radius: 16px;
+    background: rgb(246, 241, 255);
+    display: flex;
+    width: 100%;
+    max-width: 1150px;
+    height: 600px;
+    overflow: auto;
+    cursor: pointer;
+}
+
+.post-preview::-webkit-scrollbar {
+    display: none;
+}
