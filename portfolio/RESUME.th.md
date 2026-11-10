@@ -1,11 +1,17 @@
-# BunnyBubui
+# Banyapon Chaithong
 
 **Full-stack / Software Developer**  
+อีเมล: mainbanyapon@gmail.com  
 GitHub: https://github.com/BunnyBubui
 
 ## ประวัติโดยย่อ
 
 พอร์ตงานพัฒนาซอฟต์แวร์ครอบคลุมเว็บส่วนติดต่อผู้ใช้ REST API ฐานข้อมูลเชิงสัมพันธ์และเอกสาร รวมถึงระบบรับข้อมูลแบบ event-driven โดยมีตัวอย่างการใช้ React, Node.js/Express, Spring Boot และ Python/FastAPI
+
+## การศึกษา
+
+**มหาวิทยาลัยวลัยลักษณ์ — สำนักวิชาสารสนเทศศาสตร์**  
+วิทยาศาสตรบัณฑิต สาขาเทคโนโลยีสารสนเทศอัจฉริยะ (กำลังศึกษา)
 
 ## ผลงานที่คัดเลือก
 
