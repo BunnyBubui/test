@@ -1,11 +1,17 @@
-# BunnyBubui
+# Banyapon Chaithong
 
 **Full-stack / Software Developer**  
+Email: mainbanyapon@gmail.com  
 GitHub: https://github.com/BunnyBubui
 
 ## Profile
 
 Software development portfolio covering web interfaces, REST APIs, relational and document databases, and event-driven data pipelines. Project implementations use React, Node.js/Express, Spring Boot and Python/FastAPI.
+
+## Education
+
+**Walailak University — School of Informatics**  
+Bachelor of Science in Intelligent Information Technology (in progress)
 
 ## Selected projects
 
