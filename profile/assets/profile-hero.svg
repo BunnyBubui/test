@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="350" viewBox="0 0 1200 350" role="img" aria-label="Banyapon Chaithong — full-stack and software development">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#172540"/></linearGradient>
+ <linearGradient id="accent"><stop stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+</defs>
+<rect width="1200" height="350" rx="24" fill="url(#bg)"/>
+<rect x="0" y="40" width="5" height="270" rx="2" fill="url(#accent)"/>
+<g fill="none" stroke="#7c8db1" stroke-width="1" opacity=".15"><path d="M830 0v350M920 0v350M1010 0v350M1100 0v350M800 70h400M800 160h400M800 250h400"/><circle cx="1020" cy="175" r="136"/></g>
+<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif">
+ <text x="62" y="56" fill="#67e8f9" font-size="13" font-weight="700" letter-spacing="3">BUNNYBUBUI / SOFTWARE PORTFOLIO</text>
+ <text x="60" y="132" fill="#f8fafc" font-size="54" font-weight="750">Banyapon Chaithong</text>
+ <text x="63" y="180" fill="#c4b5fd" font-size="25" font-weight="500">Full-stack / Software Developer</text>
+ <text x="64" y="226" fill="#bac8dc" font-size="19">Web applications. APIs. Data pipelines.</text>
+ <g font-size="13" fill="#e2e8f0"><rect x="63" y="266" width="111" height="30" rx="15" fill="#21374b"/><text x="118" y="286" text-anchor="middle">BUILD</text><rect x="185" y="266" width="111" height="30" rx="15" fill="#25324d"/><text x="240" y="286" text-anchor="middle">CONNECT</text><rect x="307" y="266" width="111" height="30" rx="15" fill="#302d4f"/><text x="362" y="286" text-anchor="middle">EXPLORE</text></g>
+ <rect x="902" y="84" width="216" height="188" rx="28" fill="#141f35" stroke="#a78bfa" stroke-opacity=".45"/>
+ <text x="1010" y="191" text-anchor="middle" fill="url(#accent)" font-size="76" font-weight="700">BB</text>
+ <text x="1010" y="234" text-anchor="middle" fill="#8fa4c7" font-size="13" letter-spacing="2">CODE &amp; CONTEXT</text>
+</g></svg>
